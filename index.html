@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Interactif - 21 Jours Sans Se Plaindre</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .gradient-success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .gradient-warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        .gradient-info {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        .toggle-answer {
+            display: none;
+        }
+        .toggle-answer.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="gradient-bg text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center"><i class="fas fa-brain mr-3"></i>21 Jours Sans Se Plaindre</h1>
+            <p class="text-center text-xl mt-2 opacity-90">Dashboard Interactif - Méthode Will Bowen</p>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center space-x-1 py-4">
+                <button onclick="showTab('auteur')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-user mr-2"></i>Auteur
+                </button>
+                <button onclick="showTab('vue-ensemble')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-eye mr-2"></i>Vue d\'ensemble
+                </button>
+                <button onclick="showTab('principes')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-lightbulb mr-2"></i>Principes
+                </button>
+                <button onclick="showTab('erreurs')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>Erreurs à éviter
+                </button>
+                <button onclick="showTab('bonnes-pratiques')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-check-circle mr-2"></i>Bonnes pratiques
+                </button>
+                <button onclick="showTab('mise-pratique')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-play-circle mr-2"></i>Mise en pratique
+                </button>
+                <button onclick="showTab('quiz')" class="tab-btn px-4 py-2 mx-1 mb-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 transition-colors">
+                    <i class="fas fa-question-circle mr-2"></i>Quiz (30 questions)
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Onglet Auteur -->
+        <div id="auteur" class="tab-content">
+            <div class="gradient-card text-white p-8 rounded-lg shadow-lg mb-6">
+                <h2 class="text-3xl font-bold mb-6"><i class="fas fa-user-circle mr-3"></i>Will Bowen</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Profil</h3>
+                        <p class="mb-4">Pasteur américain et conférencier inspirant qui a révolutionné la façon dont nous percevons le pouvoir de nos mots.</p>
+                        <ul class="space-y-2">
+                            <li><i class="fas fa-church mr-2"></i>Pasteur et conférencier</li>
+                            <li><i class="fas fa-calendar mr-2"></i>Lancé le défi en 2006</li>
+                            <li><i class="fas fa-heart mr-2"></i>Fondateur de A Complaint Free World</li>
+                            <li><i class="fas fa-globe mr-2"></i>Organisation à but non lucratif</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3">Impact mondial</h3>
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="text-2xl font-bold">11M+</div>
+                                <div class="text-sm">Bracelets distribués</div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="text-2xl font-bold">126</div>
+                                <div class="text-sm">Pays participants</div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="text-2xl font-bold">20+</div>
+                                <div class="text-sm">Langues traduites</div>
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <div class="text-2xl font-bold">93%</div>
+                                <div class="text-sm">Recommandent</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-white bg-opacity-20 rounded-lg">
+                    <h3 class="text-lg font-semibold mb-2">Philosophie</h3>
+                    <blockquote class="italic text-lg">
+                        "Le langage que nous utilisons crée la réalité dans laquelle nous vivons."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Vue d'ensemble -->
+        <div id="vue-ensemble" class="tab-content hidden">
+            <div class="gradient-success text-white p-8 rounded-lg shadow-lg mb-6">
+                <h2 class="text-3xl font-bold mb-6"><i class="fas fa-eye mr-3"></i>Vue d\'ensemble du défi</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Le concept</h3>
+                        <p class="mb-4">Un défi simple mais transformateur : passer 21 jours consécutifs sans se plaindre, en utilisant un bracelet violet comme rappel constant.</p>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg mb-4">
+                            <h4 class="font-semibold mb-2">Statistiques alarmantes</h4>
+                            <ul class="space-y-1">
+                                <li>• 15-30 plaintes par jour en moyenne</li>
+                                <li>• 80% de pensées négatives</li>
+                                <li>• 95% de pensées répétitives</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Les bénéfices</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                <i class="fas fa-heart text-red-300 mr-2"></i>Réduction de 60% du stress
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                <i class="fas fa-smile text-yellow-300 mr-2"></i>Amélioration de l\'humeur
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                <i class="fas fa-users text-blue-300 mr-2"></i>Relations plus harmonieuses
+                            </div>
+                            <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                                <i class="fas fa-chart-line text-green-300 mr-2"></i>Productivité accrue
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Principes -->
+        <div id="principes" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-lightbulb mr-3"></i>Principes fondamentaux</h2>
+            <div class="space-y-4">
+                <div class="principle-card bg-white p-6 rounded-lg shadow-lg cursor-pointer border-l-4 border-blue-500" onclick="togglePrinciple('principe1')">
+                    <h3 class="text-xl font-semibold mb-2"><i class="fas fa-gem mr-2"></i>Principe du bracelet violet</h3>
+                    <div id="principe1" class="principle-detail hidden mt-4 p-4 bg-blue-50 rounded-lg">
+                        <p class="mb-3">Outil visuel simple qui accompagne votre quotidien comme rappel constant.</p>
+                        <ul class="space-y-2">
+                            <li>• Porter un bracelet (de préférence violet) au poignet</li>
+                            <li>• Changer de poignet à chaque plainte émise</li>
+                            <li>• Recommencer le décompte à zéro à chaque changement</li>
+                            <li>• Inclure les plaintes pensées, pas seulement verbalisées</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="principle-card bg-white p-6 rounded-lg shadow-lg cursor-pointer border-l-4 border-green-500" onclick="togglePrinciple('principe2')">
+                    <h3 class="text-xl font-semibold mb-2"><i class="fas fa-calendar-check mr-2"></i>Théorie des 21 jours</h3>
+                    <div id="principe2" class="principle-detail hidden mt-4 p-4 bg-green-50 rounded-lg">
+                        <p class="mb-3">Durée estimée nécessaire pour former ou briser une habitude.</p>
+                        <ul class="space-y-2">
+                            <li>• Recâblage des circuits neuronaux</li>
+                            <li>• Adoption naturelle d\'un mode de pensée positif</li>
+                            <li>• Transformation durable de perspective</li>
+                            <li>• Moyenne réelle : 4 à 8 mois pour réussir 21 jours consécutifs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="principle-card bg-white p-6 rounded-lg shadow-lg cursor-pointer border-l-4 border-purple-500" onclick="togglePrinciple('principe3')">
+                    <h3 class="text-xl font-semibold mb-2"><i class="fas fa-stairs mr-2"></i>Les 4 étapes de transformation</h3>
+                    <div id="principe3" class="principle-detail hidden mt-4 p-4 bg-purple-50 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold text-purple-700">1. Prise de conscience</h4>
+                                <p class="text-sm mb-2">Observer et identifier quand vous vous plaignez</p>
+                                <h4 class="font-semibold text-purple-700">2. Remplacement</h4>
+                                <p class="text-sm">Reformuler de manière positive ou neutre</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-purple-700">3. Persévérance</h4>
+                                <p class="text-sm mb-2">Accepter les rechutes et continuer</p>
+                                <h4 class="font-semibold text-purple-700">4. Nouveau mode de pensée</h4>
+                                <p class="text-sm">Intégration et transformation durable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="principle-card bg-white p-6 rounded-lg shadow-lg cursor-pointer border-l-4 border-red-500" onclick="togglePrinciple('principe4')">
+                    <h3 class="text-xl font-semibold mb-2"><i class="fas fa-brain mr-2"></i>Impact neurologique</h3>
+                    <div id="principe4" class="principle-detail hidden mt-4 p-4 bg-red-50 rounded-lg">
+                        <p class="mb-3">La science derrière la transformation :</p>
+                        <ul class="space-y-2">
+                            <li>• Renforcement des circuits neuronaux négatifs par la plainte</li>
+                            <li>• Augmentation du cortisol (hormone du stress)</li>
+                            <li>• Diminution des capacités cognitives et créatives</li>
+                            <li>• Réduction de l\'immunité et impact sur la santé physique</li>
+                            <li>• Contagion émotionnelle négative dans les groupes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Erreurs à éviter -->
+        <div id="erreurs" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-exclamation-triangle mr-3"></i>Erreurs à éviter</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="gradient-warning text-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4"><i class="fas fa-eye-slash mr-2"></i>Plaintes inconscientes</h3>
+                    <p class="mb-4">Les plaintes les plus dangereuses sont celles que nous ne remarquons pas.</p>
+                    <ul class="space-y-2">
+                        <li>• Plaintes par habitude ou automatisme</li>
+                        <li>• Plaintes \'invisibles\' difficiles à identifier</li>
+                        <li>• Pensées négatives non verbalisées</li>
+                        <li>• Critique mentale constante</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-100 border-l-4 border-red-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-red-800"><i class="fas fa-users mr-2"></i>Pression sociale</h3>
+                    <p class="mb-4 text-red-700">L\'entourage peut encourager les plaintes comme mode de socialisation.</p>
+                    <ul class="space-y-2 text-red-700">
+                        <li>• Conversations négatives comme connexion par défaut</li>
+                        <li>• Pression pour participer aux critiques collectives</li>
+                        <li>• Normalisation des plaintes dans certains groupes</li>
+                    </ul>
+                </div>
+
+                <div class="bg-orange-100 border-l-4 border-orange-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-orange-800"><i class="fas fa-building mr-2"></i>Environnements toxiques</h3>
+                    <p class="mb-4 text-orange-700">Certains contextes normalisent les plaintes continues.</p>
+                    <ul class="space-y-2 text-orange-700">
+                        <li>• Milieux professionnels négatifs</li>
+                        <li>• Familles habituées aux critiques</li>
+                        <li>• Réseaux sociaux amplificateurs de négativité</li>
+                    </ul>
+                </div>
+
+                <div class="bg-yellow-100 border-l-4 border-yellow-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-800"><i class="fas fa-ban mr-2"></i>Répression émotionnelle</h3>
+                    <p class="mb-4 text-yellow-700">Erreur de réprimer les émotions au lieu de les transformer.</p>
+                    <ul class="space-y-2 text-yellow-700">
+                        <li>• Refoulement au lieu d\'expression constructive</li>
+                        <li>• Accumulation de frustrations</li>
+                        <li>• Recherche de perfection immédiate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Bonnes pratiques -->
+        <div id="bonnes-pratiques" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-check-circle mr-3"></i>Bonnes pratiques</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="gradient-info text-gray-800 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4"><i class="fas fa-book mr-2"></i>Journal de conscience</h3>
+                    <p class="mb-4">Outil puissant pour identifier les schémas négatifs.</p>
+                    <ul class="space-y-2">
+                        <li>• Noter les plaintes quotidiennes</li>
+                        <li>• Identifier les déclencheurs</li>
+                        <li>• Analyser les schémas récurrents</li>
+                        <li>• Suivre les progrès</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-100 border-l-4 border-green-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-800"><i class="fas fa-user-friends mr-2"></i>Système de binôme</h3>
+                    <p class="mb-4 text-green-700">S\'associer avec un partenaire partageant le même objectif.</p>
+                    <ul class="space-y-2 text-green-700">
+                        <li>• Signal discret d\'alerte mutuelle</li>
+                        <li>• Encouragement réciproque</li>
+                        <li>• Partage des difficultés</li>
+                        <li>• Célébration des succès</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-100 border-l-4 border-blue-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800"><i class="fas fa-sync-alt mr-2"></i>Recadrage positif</h3>
+                    <p class="mb-4 text-blue-700">Transformer immédiatement chaque plainte.</p>
+                    <ul class="space-y-2 text-blue-700">
+                        <li>• Formuler une alternative constructive</li>
+                        <li>• Trouver une perspective positive</li>
+                        <li>• Proposer des solutions</li>
+                        <li>• Exprimer de la gratitude</li>
+                    </ul>
+                </div>
+
+                <div class="bg-purple-100 border-l-4 border-purple-500 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-800"><i class="fas fa-medal mr-2"></i>Patience et constance</h3>
+                    <p class="mb-4 text-purple-700">Clés du succès à long terme.</p>
+                    <ul class="space-y-2 text-purple-700">
+                        <li>• Accepter les rechutes comme apprentissage</li>
+                        <li>• Célébrer chaque progrès</li>
+                        <li>• Maintenir la motivation</li>
+                        <li>• Vision marathon, pas sprint</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Mise en pratique -->
+        <div id="mise-pratique" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-play-circle mr-3"></i>Mise en pratique</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Routine quotidienne</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-yellow-100 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <h4 class="font-semibold text-yellow-800 mb-3"><i class="fas fa-sun mr-2"></i>Matin</h4>
+                        <ul class="space-y-2 text-yellow-700">
+                            <li>• Intention consciente pour la journée</li>
+                            <li>• Visualisation positive</li>
+                            <li>• Gratitude matinale</li>
+                            <li>• Méditation (5-10 min)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-100 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h4 class="font-semibold text-blue-800 mb-3"><i class="fas fa-clock mr-2"></i>Journée</h4>
+                        <ul class="space-y-2 text-blue-700">
+                            <li>• Vérification régulière de l\'état d\'esprit</li>
+                            <li>• Technique STOP</li>
+                            <li>• Alertes de rappel</li>
+                            <li>• Communication constructive</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-100 p-6 rounded-lg border-l-4 border-purple-500">
+                        <h4 class="font-semibold text-purple-800 mb-3"><i class="fas fa-moon mr-2"></i>Soir</h4>
+                        <ul class="space-y-2 text-purple-700">
+                            <li>• Bilan des moments positifs</li>
+                            <li>• Analyse des difficultés</li>
+                            <li>• Journal de progression</li>
+                            <li>• Préparation du lendemain</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Technique STOP</h3>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-red-50 rounded-lg">
+                            <div class="text-3xl text-red-500 mb-2"><i class="fas fa-stop-circle"></i></div>
+                            <h4 class="font-semibold text-red-700">Stopper</h4>
+                            <p class="text-sm text-red-600">Arrêter immédiatement</p>
+                        </div>
+                        <div class="text-center p-4 bg-orange-50 rounded-lg">
+                            <div class="text-3xl text-orange-500 mb-2"><i class="fas fa-exchange-alt"></i></div>
+                            <h4 class="font-semibold text-orange-700">Transformer</h4>
+                            <p class="text-sm text-orange-600">Reformuler positivement</p>
+                        </div>
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <div class="text-3xl text-blue-500 mb-2"><i class="fas fa-eye"></i></div>
+                            <h4 class="font-semibold text-blue-700">Observer</h4>
+                            <p class="text-sm text-blue-600">Prendre conscience</p>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <div class="text-3xl text-green-500 mb-2"><i class="fas fa-forward"></i></div>
+                            <h4 class="font-semibold text-green-700">Poursuivre</h4>
+                            <p class="text-sm text-green-600">Continuer positivement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 text-gray-700">Outils complémentaires</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-6 rounded-lg">
+                        <h4 class="font-semibold mb-3"><i class="fas fa-mobile-alt mr-2"></i>Outils numériques</h4>
+                        <ul class="space-y-2">
+                            <li>• Applications de rappel d\'habitudes</li>
+                            <li>• Notifications positives</li>
+                            <li>• Fond d\'écran motivant</li>
+                            <li>• Tracker de progression</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-400 to-pink-500 text-white p-6 rounded-lg">
+                        <h4 class="font-semibold mb-3"><i class="fas fa-home mr-2"></i>Environnement physique</h4>
+                        <ul class="space-y-2">
+                            <li>• Post-it de rappel</li>
+                            <li>• Zones sans plainte</li>
+                            <li>• Objets symboliques</li>
+                            <li>• Espace de méditation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onglet Quiz -->
+        <div id="quiz" class="tab-content hidden">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800"><i class="fas fa-question-circle mr-3"></i>Quiz - 30 Questions</h2>
+            <p class="text-gray-600 mb-6">Cliquez sur chaque question pour révéler la réponse</p>
+            
+            <div class="space-y-4">
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q1')">
+                    <h3 class="font-semibold text-lg mb-2">1. En quelle année Will Bowen a-t-il lancé le défi des 21 jours sans se plaindre ?</h3>
+                    <div id="q1" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> En 2006, Will Bowen a lancé ce défi à sa congrégation.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q2')">
+                    <h3 class="font-semibold text-lg mb-2">2. Combien de fois en moyenne une personne se plaint-elle par jour ?</h3>
+                    <div id="q2" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> En moyenne, une personne se plaint 15 à 30 fois par jour.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q3')">
+                    <h3 class="font-semibold text-lg mb-2">3. Quelle couleur de bracelet est recommandée pour le défi ?</h3>
+                    <div id="q3" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Le bracelet violet est recommandé, bien que ce ne soit pas obligatoire.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q4')">
+                    <h3 class="font-semibold text-lg mb-2">4. Combien de bracelets ont été distribués dans le monde ?</h3>
+                    <div id="q4" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Plus de 11 millions de bracelets ont été distribués dans le monde.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q5')">
+                    <h3 class="font-semibold text-lg mb-2">5. Dans combien de pays le mouvement s\'est-il étendu ?</h3>
+                    <div id="q5" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Le mouvement s\'est étendu dans 126 pays.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q6')">
+                    <h3 class="font-semibold text-lg mb-2">6. Quel pourcentage de nos pensées sont négatives selon les recherches ?</h3>
+                    <div id="q6" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> 80% de nos pensées sont négatives et 95% sont répétitives.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q7')">
+                    <h3 class="font-semibold text-lg mb-2">7. Quelle est la durée moyenne réelle pour réussir 21 jours consécutifs ?</h3>
+                    <div id="q7" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> La moyenne est de 4 à 8 mois pour atteindre 21 jours consécutifs sans se plaindre.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q8')">
+                    <h3 class="font-semibold text-lg mb-2">8. Quelles sont les 4 étapes de la transformation selon Will Bowen ?</h3>
+                    <div id="q8" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> 1) Prise de conscience, 2) Remplacement, 3) Persévérance, 4) Nouveau mode de pensée.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q9')">
+                    <h3 class="font-semibold text-lg mb-2">9. Quel est le nom de l\'organisation fondée par Will Bowen ?</h3>
+                    <div id="q9" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> A Complaint Free World, une association à but non lucratif.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q10')">
+                    <h3 class="font-semibold text-lg mb-2">10. Quelle hormone augmente lorsque nous nous plaignons ?</h3>
+                    <div id="q10" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Le cortisol, l\'hormone du stress, augmente lorsque nous nous plaignons.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q11')">
+                    <h3 class="font-semibold text-lg mb-2">11. Quel pourcentage de réduction du stress a été observé chez les participants ?</h3>
+                    <div id="q11" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Une réduction de 60% du stress perçu et 74% de réduction moyenne du niveau de stress.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q12')">
+                    <h3 class="font-semibold text-lg mb-2">12. Que signifie l\'acronyme STOP dans la méthode ?</h3>
+                    <div id="q12" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Stopper, Transformer, Observer, Poursuivre.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q13')">
+                    <h3 class="font-semibold text-lg mb-2">13. Quel pourcentage des participants recommandent l\'expérience ?</h3>
+                    <div id="q13" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> 93% des participants recommandent l\'expérience.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q14')">
+                    <h3 class="font-semibold text-lg mb-2">14. Dans quelle étude l\'Université de Californie a-t-elle montré les bénéfices du défi ?</h3>
+                    <div id="q14" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Étude de 2018 sur 1200 participants montrant une corrélation directe entre la réduction des plaintes et l\'amélioration du bien-être général.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q15')">
+                    <h3 class="font-semibold text-lg mb-2">15. Quel pourcentage de réduction des pensées négatives a été observé ?</h3>
+                    <div id="q15" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Une réduction de 67% des pensées négatives selon le Journal of Positive Psychology (2019).</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q16')">
+                    <h3 class="font-semibold text-lg mb-2">16. Quelles émissions de télévision ont contribué au succès viral du mouvement ?</h3>
+                    <div id="q16" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> L\'Oprah Winfrey Show et le Today Show, entre autres.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q17')">
+                    <h3 class="font-semibold text-lg mb-2">17. Combien d\'écoles primaires ont intégré cette pratique ?</h3>
+                    <div id="q17" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Plus de 5000 établissements scolaires ont intégré cette pratique.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q18')">
+                    <h3 class="font-semibold text-lg mb-2">18. Quel impact Google a-t-il observé sur la satisfaction au travail ?</h3>
+                    <div id="q18" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Google a constaté une amélioration de 21% dans la satisfaction au travail après le défi.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q19')">
+                    <h3 class="font-semibold text-lg mb-2">19. Que doit-on faire si on se plaint mentalement ?</h3>
+                    <div id="q19" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Il faut inclure les plaintes pensées et pas seulement verbalisées, donc changer le bracelet de poignet.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q20')">
+                    <h3 class="font-semibold text-lg mb-2">20. Quel est l\'objectif principal du défi selon Will Bowen ?</h3>
+                    <div id="q20" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> L\'objectif n\'est pas de réprimer les émotions mais de les exprimer différemment, de façon plus constructive.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q21')">
+                    <h3 class="font-semibold text-lg mb-2">21. Quel pourcentage d\'amélioration du climat de travail a été observé ?</h3>
+                    <div id="q21" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Une amélioration du climat de travail de 23%.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q22')">
+                    <h3 class="font-semibold text-lg mb-2">22. Que conseille Will Bowen concernant les rechutes ?</h3>
+                    <div id="q22" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Accepter les rechutes comme partie du processus et voir chaque recommencement comme un apprentissage, pas un échec.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q23')">
+                    <h3 class="font-semibold text-lg mb-2">23. Quelle est la phrase célèbre de Will Bowen sur le langage ?</h3>
+                    <div id="q23" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> "Le langage que nous utilisons crée la réalité dans laquelle nous vivons."</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q24')">
+                    <h3 class="font-semibold text-lg mb-2">24. Quels sont les trois types de plaintes à éviter selon la méthode ?</h3>
+                    <div id="q24" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Critique, médisance et victimisation.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q25')">
+                    <h3 class="font-semibold text-lg mb-2">25. Quel impact Kaiser Permanente a-t-il observé sur les conflits internes ?</h3>
+                    <div id="q25" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Kaiser Permanente a rapporté une baisse de 23% des conflits internes.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q26')">
+                    <h3 class="font-semibold text-lg mb-2">26. Quelle est la définition de "contagion émotionnelle négative" ?</h3>
+                    <div id="q26" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> C\'est la propagation des émotions négatives dans les groupes, créant un environnement toxique.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q27')">
+                    <h3 class="font-semibold text-lg mb-2">27. Combien de langues le livre a-t-il été traduit ?</h3>
+                    <div id="q27" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> Le livre a été traduit en plus de 20 langues.</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q28')">
+                    <h3 class="font-semibold text-lg mb-2">28. Quelle métaphore Will Bowen utilise-t-il pour décrire l\'approche du défi ?</h3>
+                    <div id="q28" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> "Ce n\'est pas un sprint mais un marathon. La constance est plus importante que la perfection."</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q29')">
+                    <h3 class="font-semibold text-lg mb-2">29. Que dit Will Bowen sur la transformation personnelle et mondiale ?</h3>
+                    <div id="q29" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> "La transformation du monde commence par notre propre changement."</p>
+                    </div>
+                </div>
+
+                <div class="quiz-item bg-white p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow" onclick="toggleAnswer('q30')">
+                    <h3 class="font-semibold text-lg mb-2">30. Quelle est la citation de Will Bowen sur la conscience ?</h3>
+                    <div id="q30" class="toggle-answer bg-green-50 p-3 rounded mt-3">
+                        <p class="text-green-700"><strong>Réponse :</strong> "La conscience est la première étape de la transformation."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="gradient-bg text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg mb-2">"La transformation de votre vie commence par la transformation de vos paroles"</p>
+            <p class="opacity-75">— Will Bowen</p>
+            <div class="mt-4">
+                <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-2 rounded-lg transition-colors">
+                    Je relève le défi des 21 jours !
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Cacher tous les contenus d'onglets
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // Afficher le contenu sélectionné
+            document.getElementById(tabName).classList.remove('hidden');
+            
+            // Mettre à jour les styles des boutons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-300', 'text-gray-700');
+            });
+            
+            // Activer le bouton sélectionné
+            event.target.classList.remove('bg-gray-300', 'text-gray-700');
+            event.target.classList.add('bg-blue-500', 'text-white');
+        }
+
+        function togglePrinciple(principleId) {
+            const detail = document.getElementById(principleId);
+            detail.classList.toggle('hidden');
+        }
+
+        function toggleAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            answer.classList.toggle('show');
+        }
+
+        // Initialiser la première page
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('auteur');
+        });
+    </script>
+</body>
+</html>
